@@ -14,3 +14,28 @@ abstract class _Sales extends Model {
   bool get processing;
   bool get sent;
 }
+
+class SalesSerializer {
+  Map<String, dynamic> toMap(_Sales sales) {
+    return {
+      'id': sales.id,
+      'product': sales.product,
+      'saleDate': sales.saleDate.toIso8601String(),
+      'deliveryDate': sales.deliveryDate.toIso8601String(),
+      'shippingService': sales.shippingService,
+      'customer': sales.customer,
+      'tracking': sales.tracking,
+      'processing': sales.processing,
+      'sent': sales.sent,
+    };
+  }
+
+  _Sales fromMap(Map<String, dynamic> map) {
+    return _Sales()
+      ..id = map['id'] as String
+      ..product = map['product'] as String
+      ..saleDate = DateTime.parse(map['saleDate'] as String)
+      ..deliveryDate = DateTime.parse(map['deliveryDate'] as String)
+      ..shippingService = map['shippingService'] as String
+      ..customer = map['customer'] as String
+      ..tracking = map

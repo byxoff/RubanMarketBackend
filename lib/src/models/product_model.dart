@@ -16,3 +16,36 @@ abstract class _Product extends Model {
   String get shop;
   List<String> get reviews;
 }
+
+class ProductSerializer {
+  Map<String, dynamic> toMap(_Product product) {
+    return {
+      'id': product.id,
+      'title': product.title,
+      'price': product.price,
+      'discountPrice': product.discountPrice,
+      'city': product.city,
+      'isFavorite': product.isFavorite,
+      'category': product.category,
+      'subcategory': product.subcategory,
+      'specifications': product.specifications,
+      'shop': product.shop,
+      'reviews': product.reviews,
+    };
+  }
+
+  _Product fromMap(Map<String, dynamic> map) {
+    return _Product()
+      ..id = map['id'] as String
+      ..title = map['title'] as String
+      ..price = map['price'] as double
+      ..discountPrice = map['discountPrice'] as double
+      ..city = map['city'] as String
+      ..isFavorite = map['isFavorite'] as bool
+      ..category = map['category'] as String
+      ..subcategory = map['subcategory'] as String
+      ..specifications = map['specifications'] as String
+      ..shop = map['shop'] as String
+      ..reviews = List<String>.from(map['reviews'] as List);
+  }
+}
