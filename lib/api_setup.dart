@@ -67,24 +67,6 @@ void configureServer(Angel app) async {
   // Создание маршрутов для всех моделей данных
   app
     ..serializer
-      ..map(User, UserSerializer())
-      ..map(Product, ProductSerializer())
-      ..map(Auth, AuthSerializer())
-      ..map(Shop, ShopSerializer())
-      ..map(Chat, ChatSerializer())
-      ..map(BlockedUsers, BlockedUsersSerializer())
-      ..map(Sales, SalesSerializer())
-      ..map(Purchases, PurchasesSerializer())
-      ..map(Review, ReviewSerializer())
-      ..map(Favorites, FavoritesSerializer())
-      ..map(Cart, CartSerializer())
-      ..map(Payment, PaymentSerializer())
-      ..map(Company, CompanySerializer())
-      ..map(Seller, SellerSerializer())
-      ..map(Category, CategorySerializer())
-      ..map(Subcategory, SubcategorySerializer())
-      ..map(Specification, SpecificationSerializer())
-      ..map(Checkout, CheckoutSerializer())
     ..group('/api', (router) {
       router.get('/auth', (req, res) async {
     final authList = await auth.find().toList();
