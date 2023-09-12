@@ -1,17 +1,9 @@
 // favorites_model.dart
-class Favorites {
-  List<String> products;
+import 'package:angel3_model/angel3_model.dart';
+import 'package:angel3_serialize/angel3_serialize.dart';
+part 'favorites_model.g.dart';
 
-  Favorites({
-    required this.products,
-  });
-
-  Map<String, dynamic> toMap() {
-    return {
-      'products': products,
-    };
-  }
-
-  Favorites.fromMap(Map<String, dynamic> map)
-      : products = List<String>.from(map['products']);
+@serializable
+abstract class _Favorites extends Model {
+  List<String> get products;
 }

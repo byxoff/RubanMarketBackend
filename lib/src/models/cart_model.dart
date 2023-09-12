@@ -1,17 +1,9 @@
 // cart_model.dart
-class Cart {
-  List<String> products;
+import 'package:angel3_model/angel3_model.dart';
+import 'package:angel3_serialize/angel3_serialize.dart';
+part 'cart_model.g.dart';
 
-  Cart({
-    required this.products,
-  });
-
-  Map<String, dynamic> toMap() {
-    return {
-      'products': products,
-    };
-  }
-
-  Cart.fromMap(Map<String, dynamic> map)
-      : products = List<String>.from(map['products']);
+@serializable
+abstract class _Cart extends Model {
+  List<String> get products;
 }

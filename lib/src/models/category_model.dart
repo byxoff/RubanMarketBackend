@@ -1,21 +1,10 @@
 // category_model.dart
-class Category {
-  String name;
-  List<String> subcategories;
+import 'package:angel3_model/angel3_model.dart';
+import 'package:angel3_serialize/angel3_serialize.dart';
+part 'category_model.g.dart';
 
-  Category({
-    required this.name,
-    required this.subcategories,
-  });
-
-  Map<String, dynamic> toMap() {
-    return {
-      'name': name,
-      'subcategories': subcategories,
-    };
-  }
-
-  Category.fromMap(Map<String, dynamic> map)
-      : name = map['name'],
-        subcategories = List<String>.from(map['subcategories']);
+@serializable
+abstract class _Category extends Model {
+  String get name;
+  List<String> get subcategories;
 }

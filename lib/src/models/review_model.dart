@@ -1,33 +1,13 @@
 // review_model.dart
-class Review {
-  String user;
-  String product;
-  int rating;
-  String text;
-  List<String> images;
+import 'package:angel3_model/angel3_model.dart';
+import 'package:angel3_serialize/angel3_serialize.dart';
+part 'review_model.g.dart';
 
-  Review({
-    required this.user,
-    required this.product,
-    required this.rating,
-    required this.text,
-    required this.images,
-  });
-
-  Map<String, dynamic> toMap() {
-    return {
-      'user': user,
-      'product': product,
-      'rating': rating,
-      'text': text,
-      'images': images,
-    };
-  }
-
-  Review.fromMap(Map<String, dynamic> map)
-      : user = map['user'],
-        product = map['product'],
-        rating = map['rating'],
-        text = map['text'],
-        images = List<String>.from(map['images']);
+@serializable
+abstract class _Review extends Model {
+  String get user;
+  String get product;
+  int get rating;
+  String get text;
+  List<String> get images;
 }

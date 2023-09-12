@@ -1,22 +1,9 @@
-// auth_model.dart
-class Auth {
-  String userID;
-  String token;
+import 'package:angel3_model/angel3_model.dart';
+import 'package:angel3_serialize/angel3_serialize.dart';
+part 'auth_model.g.dart';
 
-  Auth({
-    required this.userID,
-    required this.token,
-  });
-
-  Map<String, dynamic> toMap() {
-    return {
-      'userID': userID,
-      'token': token,
-    };
-  }
-
-  Auth.fromMap(Map<String, dynamic> map)
-      : userID = map['userID'],
-        token = map['token'];
+@serializable
+abstract class _Auth extends Model {
+  String get userID;
+  String get token;
 }
-

@@ -18,24 +18,6 @@ import 'src/models/category_model.dart';
 import 'src/models/subcategory_model.dart';
 import 'src/models/specification_model.dart';
 import 'src/models/checkout_model.dart';
-import 'src/models/auth_serializer.dart';
-import 'src/models/blocked_users_serializer.dart';
-import 'src/models/cart_serializer.dart';
-import 'src/models/category_serializer.dart';
-import 'src/models/chat_serializer.dart';
-import 'src/models/checkout_serializer.dart';
-import 'src/models/company_serializer.dart';
-import 'src/models/favorites_serializer.dart';
-import 'src/models/payment_serializer.dart';
-import 'src/models/product_serializer.dart';
-import 'src/models/purchases_serializer.dart';
-import 'src/models/review_serializer.dart';
-import 'src/models/sales_serializer.dart';
-import 'src/models/seller_serializer.dart';
-import 'src/models/shop_serializer.dart';
-import 'src/models/specification_serializer.dart';
-import 'src/models/subcategory_serializer.dart';
-import 'src/models/user_serializer.dart';
 
 void configureServer(Angel app) async {
   // Создание подключения к базе данных MongoDB

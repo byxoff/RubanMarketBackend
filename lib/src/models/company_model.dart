@@ -1,37 +1,14 @@
 // company_model.dart
-class Company {
-  String name;
-  String website;
-  String phone;
-  String email;
-  String address;
-  String description;
+import 'package:angel3_model/angel3_model.dart';
+import 'package:angel3_serialize/angel3_serialize.dart';
+part 'company_model.g.dart';
 
-  Company({
-    required this.name,
-    required this.website,
-    required this.phone,
-    required this.email,
-    required this.address,
-    required this.description,
-  });
-
-  Map<String, dynamic> toMap() {
-    return {
-      'name': name,
-      'website': website,
-      'phone': phone,
-      'email': email,
-      'address': address,
-      'description': description,
-    };
-  }
-
-  Company.fromMap(Map<String, dynamic> map)
-      : name = map['name'],
-        website = map['website'],
-        phone = map['phone'],
-        email = map['email'],
-        address = map['address'],
-        description = map['description'];
+@serializable
+abstract class _Company extends Model {
+  String get name;
+  String get website;
+  String get phone;
+  String get email;
+  String get address;
+  String get description;
 }

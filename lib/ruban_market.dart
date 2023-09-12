@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:angel3_framework/angel3_framework.dart';
+import 'package:angel3_framework/http.dart';
 import 'package:file/local.dart';
 import 'src/config/config.dart' as configuration;
 import 'src/routes/routes.dart' as routes;
@@ -27,5 +29,7 @@ void main() async {
   await configureServer(app);
 
   // Запустите ваш сервер
-  await app.start();
+  var server = await HttpServer.bind('127.0.0.1', 8181);
+  var http = AngelHttp(app);
+  await http.startServer('127.0.0.1', 8181);
 }

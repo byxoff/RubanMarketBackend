@@ -1,33 +1,13 @@
 // purchases_model.dart
-class Purchases {
-  String product;
-  DateTime purchaseDate;
-  bool received;
-  bool sent;
-  bool archived;
+import 'package:angel3_model/angel3_model.dart';
+import 'package:angel3_serialize/angel3_serialize.dart';
+part 'purchases_model.g.dart';
 
-  Purchases({
-    required this.product,
-    required this.purchaseDate,
-    required this.received,
-    required this.sent,
-    required this.archived,
-  });
-
-  Map<String, dynamic> toMap() {
-    return {
-      'product': product,
-      'purchaseDate': purchaseDate.toIso8601String(),
-      'received': received,
-      'sent': sent,
-      'archived': archived,
-    };
-  }
-
-  Purchases.fromMap(Map<String, dynamic> map)
-      : product = map['product'],
-        purchaseDate = DateTime.parse(map['purchaseDate']),
-        received = map['received'],
-        sent = map['sent'],
-        archived = map['archived'];
+@serializable
+abstract class _Purchases extends Model {
+  String get product;
+  DateTime get purchaseDate;
+  bool get received;
+  bool get sent;
+  bool get archived;
 }

@@ -1,25 +1,11 @@
 // chat_model.dart
-class Chat {
-  String product;
-  List<String> messages;
-  List<String> users;
+import 'package:angel3_model/angel3_model.dart';
+import 'package:angel3_serialize/angel3_serialize.dart';
+part 'chat_model.g.dart';
 
-  Chat({
-    required this.product,
-    required this.messages,
-    required this.users,
-  });
-
-  Map<String, dynamic> toMap() {
-    return {
-      'product': product,
-      'messages': messages,
-      'users': users,
-    };
-  }
-
-  Chat.fromMap(Map<String, dynamic> map)
-      : product = map['product'],
-        messages = List<String>.from(map['messages']),
-        users = List<String>.from(map['users']);
+@serializable
+abstract class _Chat extends Model {
+  String get product;
+  List<String> get messages;
+  List<String> get users;
 }

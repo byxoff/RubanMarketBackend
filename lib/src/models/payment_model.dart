@@ -1,29 +1,12 @@
 // payment_model.dart
-class Payment {
-  String user;
-  String product;
-  String type;
-  String method;
+import 'package:angel3_model/angel3_model.dart';
+import 'package:angel3_serialize/angel3_serialize.dart';
+part 'payment_model.g.dart';
 
-  Payment({
-    required this.user,
-    required this.product,
-    required this.type,
-    required this.method,
-  });
-
-  Map<String, dynamic> toMap() {
-    return {
-      'user': user,
-      'product': product,
-      'type': type,
-      'method': method,
-    };
-  }
-
-  Payment.fromMap(Map<String, dynamic> map)
-      : user = map['user'],
-        product = map['product'],
-        type = map['type'],
-        method = map['method'];
+@serializable
+abstract class _Payment extends Model {
+  String get user;
+  String get product;
+  String get type;
+  String get method;
 }

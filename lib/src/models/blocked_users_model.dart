@@ -1,17 +1,9 @@
 // blocked_users_model.dart
-class BlockedUsers {
-  List<String> users;
+import 'package:angel3_model/angel3_model.dart';
+import 'package:angel3_serialize/angel3_serialize.dart';
+part 'blocked_users_model.g.dart';
 
-  BlockedUsers({
-    required this.users,
-  });
-
-  Map<String, dynamic> toMap() {
-    return {
-      'users': users,
-    };
-  }
-
-  BlockedUsers.fromMap(Map<String, dynamic> map)
-      : users = List<String>.from(map['users']);
+@serializable
+abstract class _BlockedUsers extends Model {
+  List<String> get users;
 }

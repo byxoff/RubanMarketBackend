@@ -1,45 +1,16 @@
 // seller_model.dart
-class Seller {
-  String name;
-  String username;
-  String place;
-  String email;
-  String phone;
-  String gender;
-  int transactions;
-  DateTime registrationDate;
+import 'package:angel3_model/angel3_model.dart';
+import 'package:angel3_serialize/angel3_serialize.dart';
+part 'seller_model.g.dart';
 
-  Seller({
-    required this.name,
-    required this.username,
-    required this.place,
-    required this.email,
-    required this.phone,
-    required this.gender,
-    required this.transactions,
-    required this.registrationDate,
-  });
-
-  Map<String, dynamic> toMap() {
-    return {
-      'name': name,
-      'username': username,
-      'place': place,
-      'email': email,
-      'phone': phone,
-      'gender': gender,
-      'transactions': transactions,
-      'registrationDate': registrationDate.toIso8601String(),
-    };
-  }
-
-  Seller.fromMap(Map<String, dynamic> map)
-      : name = map['name'],
-        username = map['username'],
-        place = map['place'],
-        email = map['email'],
-        phone = map['phone'],
-        gender = map['gender'],
-        transactions = map['transactions'],
-        registrationDate = DateTime.parse(map['registrationDate']);
+@serializable
+abstract class _Seller extends Model {
+  String get name;
+  String get username;
+  String get place;
+  String get email;
+  String get phone;
+  String get gender;
+  int get transactions;
+  DateTime get registrationDate;
 }
