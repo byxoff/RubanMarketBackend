@@ -10,21 +10,3 @@ abstract class _Chat extends Model {
   List<String> get users;
 }
 
-class ChatSerializer {
-  Map<String, dynamic> toMap(_Chat chat) {
-    return {
-      'id': chat.id,
-      'product': chat.product,
-      'messages': chat.messages,
-      'users': chat.users,
-    };
-  }
-
-  _Chat fromMap(Map<String, dynamic> map) {
-    return _Chat()
-      ..id = map['id'] as String
-      ..product = map['product'] as String
-      ..messages = List<String>.from(map['messages'] as List)
-      ..users = List<String>.from(map['users'] as List);
-  }
-}

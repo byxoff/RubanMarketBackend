@@ -6,7 +6,6 @@ import 'package:file/local.dart';
 import 'src/config/config.dart' as configuration;
 import 'src/routes/routes.dart' as routes;
 import 'src/services/services.dart' as services;
-import 'api_setup.dart'; // Импортируйте ваш api_setup.dart
 
 /// Configures the server instance.
 Future configureServer(Angel app) async {
@@ -20,6 +19,8 @@ Future configureServer(Angel app) async {
   await app.configure(routes.configureServer(fs));
 
 }
+
+
 
 void main() async {
   // Создайте экземпляр вашего приложения
